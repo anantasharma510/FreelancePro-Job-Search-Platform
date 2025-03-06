@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
+
   const onLogin = () => {
     router.push("/login");
   };
