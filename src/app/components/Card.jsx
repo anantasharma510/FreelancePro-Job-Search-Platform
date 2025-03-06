@@ -12,6 +12,7 @@ const Card = () => {
     };
 
     return (
+       
         <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8 p-8 bg-white shadow-lg rounded-xl max-w-6xl mx-auto border border-gray-200">
             {/* Image Section */}
             <div className="w-full md:w-1/3 flex justify-center">

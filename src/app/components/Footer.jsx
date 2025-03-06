@@ -12,14 +12,18 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#13544e] text-white py-10 px-6">
+    <footer className="bg-[#13544e] text-white mt-6 py-10 px-6">
       {/* Main Footer Section */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {/* Company Info */}
         <div>
-          <h1 className="text-3xl font-bold mb-2 text-green-400" style={{ fontFamily: "'Dancing Script', cursive" }}>
-            Freelance Pro
-          </h1>
+        <h1
+  style={{ fontFamily: "'Noto Serif'" }}
+  className="text-3xl font-bold mb-2 text-green-400"
+>
+  Freelance Pro
+</h1>
+
           <p className="text-gray-300 text-sm mb-4">
             The premier platform connecting top-tier talent with businesses worldwide. How work should work.
           </p>

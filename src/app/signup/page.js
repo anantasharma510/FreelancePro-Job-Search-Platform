@@ -1,12 +1,10 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import SignupSelection from "./SignUpSelection";
 
-const page = () => {
+export default function page() {
   return (
     <div>
-<Navbar />
+      
+      <SignupSelection />
     </div>
   )
 }
-
-export default page
