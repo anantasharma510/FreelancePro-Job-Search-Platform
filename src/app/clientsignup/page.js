@@ -1,5 +1,10 @@
-export default function page() {
-    return (
-        <div>page</div>
-    )
+import React from 'react';
+import ClientSignup from './clientSignup';
+
+export default function Page() {
+  return (
+    <div>
+     <ClientSignup />
+    </div>
+  );
 }
