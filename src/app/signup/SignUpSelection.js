@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 const SelectionOption = ({ icon: Icon, text, selected, setSelected, value }) => (
   <div
-    className={`border p-6 rounded-lg cursor-pointer flex flex-col items-center gap-2 w-64 transition-all ${
+    className={`border p-6 rounded-lg cursor-pointer flex flex-col items-center gap-2 w-64 sm:w-56 xs:w-48 transition-all ${
       selected === value ? 'border-black' : 'border-gray-300'
     }`}
     onClick={() => setSelected(value)}
@@ -41,7 +41,7 @@ const SignupSelection = () => {
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen bg-white text-black">
         <h2 className="text-2xl font-semibold mb-6">Join as a client or freelancer</h2>
-        <div className="flex gap-4 mb-6">
+        <div className="flex gap-4 mb-6 flex-wrap justify-center">
           <SelectionOption
             icon={FaBriefcase}
             text="I'm a client, hiring for a project"
