@@ -5,6 +5,9 @@ const FreeLancer = () => {
   return (
     <div>
         <Navbar />
+        <form>
+          
+        </form>
 
 
     </div>
