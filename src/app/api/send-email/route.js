@@ -1,9 +1,5 @@
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
-// Set API Key
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-// Export a named function for the POST request
 export async function POST(req) {
   try {
     // Parse request body
@@ -16,10 +12,19 @@ export async function POST(req) {
       });
     }
 
+    // Create transporter
+    let transporter = nodemailer.createTransport({
+      service: 'gmail', // Use your email provider (Gmail, Outlook, etc.)
+      auth: {
+        user: process.env.EMAIL_USER, // Your email
+        pass: process.env.EMAIL_PASS, // App Password or SMTP Password
+      },
+    });
+
     // Email Content
-    const msg = {
+    let mailOptions = {
+      from: process.env.EMAIL_USER, // Sender's email
       to: email, // Recipient's email
-      from: process.env.SENDGRID_FROM_EMAIL, // Must be a verified sender in SendGrid
       subject: 'Welcome to Our Platform!',
       text: `Hello ${name},\n\nThank you for signing up! Your account has been successfully created.`,
       html: `<h2>Hello ${name},</h2>
@@ -29,15 +34,15 @@ export async function POST(req) {
     };
 
     // Send Email
-    const response = await sgMail.send(msg);
-    console.log('SendGrid Response:', response);
+    let info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ', info.response);
 
     return new Response(JSON.stringify({ message: 'Registration successful. Email sent!' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error('SendGrid Error:', error.response ? error.response.body : error);
+    console.error('Nodemailer Error:', error);
 
     return new Response(JSON.stringify({ error: 'Email sending failed. Try again later.' }), {
       status: 500,
