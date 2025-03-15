@@ -5,6 +5,8 @@ import countryList from 'country-list';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import {signIn} from 'next-auth/react'
+
 const ClientSignup = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -125,7 +127,9 @@ const ClientSignup = () => {
         </div>
       )}
         <div className="flex justify-center gap-4 mt-6">
-        <button className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow-md bg-white hover:bg-gray-100">
+        <button className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow-md bg-white hover:bg-gray-100"
+        onClick={() => signIn('google')}
+        >
           <Image src="/google.svg" width={18} height={18} alt="Google icon" />
           Sign in with Google
         </button>
